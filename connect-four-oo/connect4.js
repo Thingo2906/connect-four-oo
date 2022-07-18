@@ -1,4 +1,4 @@
-/** Connect Four
+** Connect Four
  *
  * Player 1 and 2 alternate turns. On each turn, a piece is dropped down a
  * column until a player gets four-in-a-row (horiz, vert, or diag) or until
@@ -14,21 +14,21 @@
 /** makeBoard: create in-JS board structure:
  *   board = array of rows, each row is array of cells  (board[y][x])
  */
-class Game{
+ class Game{
   constructor(player1, player2, height = 6, width = 7){
-    this.players = [player1, player2];
-   // this.player1 = player1;
-   // this,player2 = player2;
+    this.player1 = player1;
+    this.player2 = player2;
     this.height = height;
     this.width = width;
     this.currPlayer = player1;
     this.makeBoard();
     this.makeHtmlBoard();
     this.gameOver = false;
+
     
   }
   makeBoard() {
-    this.board =[]
+    this.board =[];
     for (let y = 0; y < this.height; y++) {
       this.board.push(Array.from({ length: this.width }));
     }
@@ -120,8 +120,7 @@ class Game{
     }
       
     // switch players
-    //this.currPlayer = this.currPlayer === this.player1 ? this.player2 : this.player1;
-    this.currPlayer = this.currPlayer === this.players[0] ? this.players[1] : this.players[0];
+    this.currPlayer = this.currPlayer === this.player1 ? this.player2 : this.player1;
   }
     
 
